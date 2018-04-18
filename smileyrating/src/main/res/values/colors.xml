@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="faceColor">#f6b93c</color>
+    <color name="eyesColor">#000000</color>
+    <color name="tongueColor">#c32925</color>
+    <color name="mouthColor">#000000</color>
+</resources>

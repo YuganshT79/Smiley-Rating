@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="SmileyRating">
+        <attr name="faceColor" format="color"/>
+        <attr name="eyesColor" format="color"/>
+        <attr name="tongueColor" format="color"/>
+        <attr name="mouthColor" format="color"/>
+    </declare-styleable>
+</resources>
