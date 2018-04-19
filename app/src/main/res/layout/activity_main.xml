@@ -1,27 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.yugansh.tyagi.smileyrating.SmileyRating
-        android:id="@+id/smiley_view"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="400dp" />
+        android:layout_height="match_parent">
+
+        <com.yugansh.tyagi.smileyrating.SmileyRating
+            android:id="@+id/smiley_view"
+            android:layout_width="match_parent"
+            android:layout_height="400dp" />
 
 
-    <RatingBar
-        android:id="@+id/rating_bar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/smiley_view"
-        android:layout_centerHorizontal="true"
-        android:theme="@style/RatingBar"
-        android:layout_marginTop="120dp"
-        android:numStars="4"
-        android:rating="1"
-        android:stepSize="1" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/smiley_view"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:text="Rate your Experience"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp" />
 
-</RelativeLayout>
+        <RatingBar
+            android:id="@+id/rating_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/smiley_view"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="70dp"
+            android:numStars="4"
+            android:rating="1"
+            android:stepSize="1"
+            android:theme="@style/RatingBar" />
+
+        <EditText
+            android:id="@+id/review_box"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_below="@id/rating_bar"
+            android:layout_margin="24dp"
+            android:background="@drawable/rounded_bg"
+            android:hint="Write your Review"
+            android:padding="12dp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/review_box"
+            android:layout_margin="24dp"
+            android:text="Submit"
+            android:elevation="4dp"
+            android:background="@color/colorPrimary"/>
+    </RelativeLayout>
+
+</ScrollView>

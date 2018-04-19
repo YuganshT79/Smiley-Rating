@@ -1,19 +1,14 @@
 package com.yugansh.tyagi.smileyrating;
 
-import android.animation.RectEvaluator;
-import android.animation.ValueAnimator;
+import android.animation.TypeEvaluator;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.Rect;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.DecelerateInterpolator;
-import android.view.animation.Transformation;
 
 /**
  * Created by Yugansh Tyagi on 4/19/2018.
@@ -21,9 +16,9 @@ import android.view.animation.Transformation;
 public class SmileyRating extends View {
 
     private int faceColor, eyesColor, mouthColor, tongueColor;
-    private RectF neutralOval,slightOval,happyOval,amazingOval, tongueOval, currRect;
+    private RectF neutralOval, slightOval, happyOval, amazingOval, tongueOval, currRect;
     private Paint paint;
-    int centerOffset, viewWidth, viewHeight, whatToDraw = 0;
+    int centerOffset, viewWidth, viewHeight, whatToDraw = 0, strokeWidth, eyeRadius;
 
     public SmileyRating(Context context) {
         super(context);
@@ -65,21 +60,24 @@ public class SmileyRating extends View {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         viewWidth = MeasureSpec.getSize(widthMeasureSpec);
         viewHeight = MeasureSpec.getSize(heightMeasureSpec);
+
+        strokeWidth = viewHeight/30 + viewWidth/30;
+        eyeRadius = viewHeight/25 + viewWidth/25;
         centerOffset = viewHeight / 3;
-        Log.d("Height", String.valueOf(viewHeight / 3));
+
         neutralOval.set(-centerOffset, -viewHeight, viewWidth + centerOffset, viewHeight);
 
-        slightOval.set((viewWidth / 2) - 380,viewHeight-700,
-                        (viewWidth / 2) + 380,viewHeight-200);
+        slightOval.set((viewWidth / 2) - (viewWidth/100 * 35), viewHeight - (viewHeight/100 * 60),
+                (viewWidth / 2) + (viewWidth/100 * 35), viewHeight - (viewHeight/100 * 20));
 
-        happyOval.set((viewWidth / 2) - 400,viewHeight-1000,
-                (viewWidth / 2) + 400,viewHeight-150);
+        happyOval.set((viewWidth / 2) - (viewWidth/100 * 35), viewHeight - (viewHeight/100 * 90),
+                (viewWidth / 2) + (viewWidth/100 * 35), viewHeight - (viewHeight/100 * 20));
 
-        amazingOval.set((viewWidth / 2) - 430,viewHeight-1000,
-                (viewWidth / 2) + 430,viewHeight-150);
+        amazingOval.set((viewWidth / 2) - (viewWidth/100 * 35), viewHeight - (viewHeight/100 * 90),
+                (viewWidth / 2) + (viewWidth/100 * 35), viewHeight - (viewHeight/100 * 15));
 
-        tongueOval.set((viewWidth / 2) - 230,viewHeight-650,
-                (viewWidth / 2) + 230,viewHeight-200);
+        tongueOval.set((viewWidth / 2) - (viewWidth/100 * 20), viewHeight - (viewHeight/100 * 60),
+                (viewWidth / 2) + (viewWidth/100 * 20), viewHeight - (viewHeight/100 * 20));
     }
 
     @Override
@@ -90,7 +88,7 @@ public class SmileyRating extends View {
                 drawNeutralFace(canvas);
                 break;
             case 1:
-               drawNeutralFace(canvas);
+                drawNeutralFace(canvas);
                 break;
             case 2:
                 drawSlightSmileFace(canvas);
@@ -113,18 +111,21 @@ public class SmileyRating extends View {
         //Draw Eyes
         paint.setColor(eyesColor);
         paint.setStyle(Paint.Style.FILL);
-        canvas.drawCircle((viewWidth / 2) - 280, 200, 80, paint);
-        canvas.drawCircle((viewWidth / 2) + 280, 200, 80, paint);
+        canvas.drawCircle((viewWidth / 2) - (viewWidth/100 * 25),
+                (viewHeight/100 * 20), eyeRadius, paint);
+        canvas.drawCircle((viewWidth / 2) + (viewWidth/100 * 25),
+                (viewHeight/100 * 20), eyeRadius, paint);
+        Log.d("Eyes Radius", String.valueOf(eyeRadius));
 
         //Draw mouth
         paint.setColor(mouthColor);
         paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(60);
+        paint.setStrokeWidth(strokeWidth);
         paint.setStrokeCap(Paint.Cap.ROUND);
-        canvas.drawLine((viewWidth / 2) - 360,
-                viewHeight - 360,
-                (viewWidth / 2) + 360,
-                viewHeight - 360, paint);
+        canvas.drawLine((viewWidth / 2) - (viewWidth/100 * 30),
+                viewHeight - (viewHeight/100 * 30),
+                (viewWidth / 2) + (viewWidth/100 * 30),
+                viewHeight - (viewHeight/100 * 30), paint);
 
         currRect = neutralOval;
 
@@ -136,21 +137,22 @@ public class SmileyRating extends View {
         //Draw face BG
         paint.setColor(faceColor);
         paint.setStyle(Paint.Style.FILL);
-        canvas.drawArc(neutralOval,0,180,true,paint);
+        canvas.drawArc(neutralOval, 0, 180, true, paint);
 
         //Draw Eyes
         paint.setColor(eyesColor);
         paint.setStyle(Paint.Style.FILL);
-        canvas.drawCircle((viewWidth/2)-160, 210, 80, paint);
-        canvas.drawCircle((viewWidth/2)+160, 210, 80, paint);
+        canvas.drawCircle((viewWidth / 2) - (viewWidth/100 *18),
+                (viewHeight/100 *23), eyeRadius, paint);
+        canvas.drawCircle((viewWidth / 2) + (viewWidth/100 *18),
+                (viewHeight/100 *23), eyeRadius, paint);
 
         //Draw mouth
         paint.setColor(mouthColor);
         paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(60);
+        paint.setStrokeWidth(strokeWidth);
         paint.setStrokeCap(Paint.Cap.ROUND);
-        paint.setStrokeMiter(30f);
-        canvas.drawArc(slightOval, 0,180,false,paint);
+        canvas.drawArc(slightOval, 0, 180, false, paint);
         invalidate();
         requestLayout();
     }
@@ -159,13 +161,15 @@ public class SmileyRating extends View {
         //Draw face BG
         paint.setColor(faceColor);
         paint.setStyle(Paint.Style.FILL);
-        canvas.drawArc(neutralOval,0,180,true,paint);
+        canvas.drawArc(neutralOval, 0, 180, true, paint);
 
         //Draw Eyes
         paint.setColor(eyesColor);
         paint.setStyle(Paint.Style.FILL);
-        canvas.drawCircle((viewWidth/2)-200, 220, 80, paint);
-        canvas.drawCircle((viewWidth/2)+200, 220, 80, paint);
+        canvas.drawCircle((viewWidth / 2) - (viewWidth/100 * 18),
+                (viewHeight/100 * 22), eyeRadius, paint);
+        canvas.drawCircle((viewWidth / 2) + (viewWidth/100 * 18),
+                (viewHeight/100 * 22), eyeRadius, paint);
 
         //Draw mouth
         paint.setColor(mouthColor);
@@ -173,7 +177,7 @@ public class SmileyRating extends View {
         paint.setStrokeWidth(60);
         paint.setStrokeCap(Paint.Cap.ROUND);
         paint.setStrokeMiter(30f);
-        canvas.drawArc(happyOval, 0,180,false,paint);
+        canvas.drawArc(happyOval, 0, 180, false, paint);
         invalidate();
         requestLayout();
     }
@@ -182,21 +186,21 @@ public class SmileyRating extends View {
         //Draw face BG
         paint.setColor(faceColor);
         paint.setStyle(Paint.Style.FILL);
-        canvas.drawArc(neutralOval,0,180,true,paint);
+        canvas.drawArc(neutralOval, 0, 180, true, paint);
 
         //Draw Eyes
         paint.setColor(eyesColor);
         paint.setStyle(Paint.Style.FILL);
-        canvas.drawCircle((viewWidth/2)-230, 240, 80, paint);
-        canvas.drawCircle((viewWidth/2)+230, 240, 80, paint);
+        canvas.drawCircle((viewWidth / 2) - (viewWidth/100 * 23),
+                (viewHeight/100 * 23), eyeRadius, paint);
+        canvas.drawCircle((viewWidth / 2) + (viewWidth/100 * 23),
+                (viewHeight/100 * 23), eyeRadius, paint);
+
 
         //Draw mouth
         paint.setColor(mouthColor);
         paint.setStyle(Paint.Style.FILL);
-//        paint.setStrokeWidth(60);
-//        paint.setStrokeCap(Paint.Cap.ROUND);
-//        paint.setStrokeMiter(30f);
-        canvas.drawArc(happyOval, 0,180,true,paint);
+        canvas.drawArc(amazingOval, 0, 180, true, paint);
 
         //Draw tongue
         paint.setColor(tongueColor);
@@ -206,12 +210,6 @@ public class SmileyRating extends View {
         invalidate();
         requestLayout();
     }
-
-    private RectF getCurrRect(){
-        return currRect;
-    }
-
-
 
     public void setSmiley(float rating) {
         switch ((int) rating) {
@@ -238,13 +236,31 @@ public class SmileyRating extends View {
         }
     }
 
-    class PositionAnimator extends RectEvaluator{
+    public class CRectFEvaluator implements TypeEvaluator<RectF> {
 
-        private RectF oldPosition,newPosition;
+
+        private RectF mRectF;
+        public CRectFEvaluator() {
+        }
+
+
+        public CRectFEvaluator(RectF reuseRect) {
+            mRectF = reuseRect;
+        }
 
         @Override
-        public Rect evaluate(float fraction, Rect startValue, Rect endValue) {
-            return super.evaluate(fraction, startValue, endValue);
+        public RectF evaluate(float fraction, RectF startValue, RectF endValue) {
+            float left = startValue.left + (endValue.left - startValue.left) * fraction;
+            float top = startValue.top + (endValue.top - startValue.top) * fraction;
+            float right = startValue.right + (endValue.right - startValue.right) * fraction;
+            float bottom = startValue.bottom + (endValue.bottom - startValue.bottom) * fraction;
+            if (mRectF == null) {
+                return new RectF(left, top, right, bottom);
+            } else {
+                mRectF.set(left, top, right, bottom);
+                return mRectF;
+            }
         }
     }
+
 }
