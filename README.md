@@ -13,7 +13,8 @@ Here is the Demo Video
 
 | Neutral face | Slightly Happy Face | Happy Face  | Amazing Face|
 | :-------------: |:-------------:| :-----:|:---:|
-| ![Neutral](https://raw.githubusercontent.com/YuganshT79/Smiley-Rating/master/images/Neutral.jpeg)  | ![Slight Smile](https://raw.githubusercontent.com/YuganshT79/Smiley-Rating/master/images/Slight.jpeg) | ![Happy Face](https://raw.githubusercontent.com/YuganshT79/Smiley-Rating/master/images/Happy.jpeg) |![Awesome Face](https://raw.githubusercontent.com/YuganshT79/Smiley-Rating/master/images/Awesome.jpeg)|
+| ![Neutral](https://raw.githubusercontent.com/YuganshT79/Smiley-Rating/master/images/Neutral.jpeg)  | ![Slight Smile](https://raw.githubusercontent.com/YuganshT79/Smiley-Rating/master/images/Slight.jpeg) | ![Happy Face](https://raw.githubusercontent.com/YuganshT79/Smiley-Rating/master/images/Happy.jpeg) |![Amaing Face
+(https://raw.githubusercontent.com/YuganshT79/Smiley-Rating/master/images/Amazing%20Face.jpeg)|
 
 
 ## Things to implement
