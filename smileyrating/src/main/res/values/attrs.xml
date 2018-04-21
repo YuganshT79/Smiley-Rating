@@ -2,9 +2,10 @@
 <resources>
 
     <declare-styleable name="SmileyRating">
-        <attr name="faceColor" format="color"/>
-        <attr name="eyesColor" format="color"/>
-        <attr name="tongueColor" format="color"/>
-        <attr name="mouthColor" format="color"/>
+        <attr name="face_color" format="color"/>
+        <attr name="eyes_color" format="color"/>
+        <attr name="tongue_color" format="color"/>
+        <attr name="mouth_color" format="color"/>
+        <attr name="default_rating" format="integer"/>
     </declare-styleable>
 </resources>
