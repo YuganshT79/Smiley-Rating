@@ -8,17 +8,34 @@ Here is the Demo Video
 
 ![Alt Text](https://raw.githubusercontent.com/YuganshT79/Smiley-Rating/master/images/demo.gif)
 
-
 ## Screenshots of the App
 
 | Sad Face| Neutral face | Slightly Happy Face | Happy Face  | Amazing Face|
 | :---:|:-------------: |:-------------:| :-----:|:---:|
 |![Sad Face](https://i.imgur.com/1qSpXVDh.jpg)|![Neutral Face](https://i.imgur.com/zMyFCLzh.jpg)|![Slight Smile Face](https://i.imgur.com/PmV5Wrjh.jpg)|![Happy Face](https://i.imgur.com/jtjZ4EXh.jpg)|![Amaing Face](https://i.imgur.com/IvxlHNFh.jpg)|
 
+## Library Usage
 
-## Things to implement
+Add the Dependency
 
-- Make custom Smiley view :ballot_box_with_check:
-- Make Smilaye change on RatingBar change :ballot_box_with_check:
-- Animate the Smiley Change (W.I.P)
-- Release the library (W.I.P)
+``` groovy
+dependencies {
+    implementation 'my dependency'
+}
+```
+
+Add `SmileyRating` to your layout
+
+``` xml
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.yugansh.tyagi.smileyrating.SmileyRating
+            android:id="@+id/smiley_view"
+            android:layout_width="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_height="400dp"
+            app:default_rating="2"/>
+    </RelativeLayout>
+```

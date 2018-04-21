@@ -5,12 +5,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.RatingBar;
 
-import com.yugansh.tyagi.smileyrating.SmileyRating;
+import com.yugansh.tyagi.smileyrating.SmileyRatingView;
 
 public class MainActivity extends AppCompatActivity {
 
     RatingBar ratingBar;
-    SmileyRating smileyRating;
+    SmileyRatingView smileyRating;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -6,6 +6,7 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
@@ -14,7 +15,7 @@ import android.view.View;
 /**
  * Created by Yugansh Tyagi on 4/19/2018.
  */
-public class SmileyRating extends View {
+public class SmileyRatingView extends View {
 
     private int faceColor, eyesColor, mouthColor, tongueColor;
     private RectF faceBgOval, sadOval, slightHappyOval, happyOval, amazingOval, tongueOval;
@@ -22,11 +23,16 @@ public class SmileyRating extends View {
     int centerOffset, viewWidth, viewHeight,
             whatToDraw = 2, defaultRating, strokeWidth, eyeRadius;
 
-    public SmileyRating(Context context) {
+    public SmileyRatingView(Context context) {
         super(context);
+
+        //Disable Hardware acceleration on device with API < 18
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR2) {
+            setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        }
     }
 
-    public SmileyRating(Context context, AttributeSet attrs) {
+    public SmileyRatingView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         //Initializing objects
@@ -39,18 +45,18 @@ public class SmileyRating extends View {
         tongueOval = new RectF();
 
         //Getting attributes value
-        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.SmileyRating);
+        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.SmileyRatingView);
         try {
-            faceColor = typedArray.getColor(R.styleable.SmileyRating_face_color,
+            faceColor = typedArray.getColor(R.styleable.SmileyRatingView_face_color,
                     getResources().getColor(R.color.faceColor));
-            eyesColor = typedArray.getColor(R.styleable.SmileyRating_eyes_color,
+            eyesColor = typedArray.getColor(R.styleable.SmileyRatingView_eyes_color,
                     getResources().getColor(R.color.eyesColor));
-            mouthColor = typedArray.getColor(R.styleable.SmileyRating_mouth_color,
+            mouthColor = typedArray.getColor(R.styleable.SmileyRatingView_mouth_color,
                     getResources().getColor(R.color.mouthColor));
-            tongueColor = typedArray.getColor(R.styleable.SmileyRating_tongue_color,
+            tongueColor = typedArray.getColor(R.styleable.SmileyRatingView_tongue_color,
                     getResources().getColor(R.color.tongueColor));
             defaultRating = typedArray.getInteger(
-                    R.styleable.SmileyRating_default_rating, 2);
+                    R.styleable.SmileyRatingView_default_rating, 2);
         } finally {
             typedArray.recycle();
         }
