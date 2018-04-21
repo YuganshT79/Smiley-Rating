@@ -1,5 +1,7 @@
 # **Smiley-Rating**
 
+[![Version](https://jitpack.io/v/YuganshT79/Smiley-Rating.svg)](https://jitpack.io/#YuganshT79/Smiley-Rating)
+
 Smiley-Rating is a custom way to greet your users with a smile :smile: while they give awesome Feedback about your app.
 
 ## Inspiration
