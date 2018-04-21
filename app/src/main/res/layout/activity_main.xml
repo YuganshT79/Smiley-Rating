@@ -8,13 +8,14 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <com.yugansh.tyagi.smileyrating.SmileyRating
             android:id="@+id/smiley_view"
             android:layout_width="match_parent"
-            android:layout_height="400dp" />
-
+            android:layout_centerHorizontal="true"
+            android:layout_height="400dp"
+            app:default_rating="2"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -34,7 +35,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="70dp"
             android:numStars="4"
-            android:rating="1"
+            android:rating="2"
             android:stepSize="1"
             android:theme="@style/RatingBar" />
 
