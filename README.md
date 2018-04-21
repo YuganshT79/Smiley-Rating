@@ -13,11 +13,7 @@ Here is the Demo Video
 
 | Sad Face| Neutral face | Slightly Happy Face | Happy Face  | Amazing Face|
 | :---:|:-------------: |:-------------:| :-----:|:---:|
-|![Sad Face](https://i.imgur.com/1qSpXVD.jpg)
-|![Neutral Face](https://i.imgur.com/zMyFCLz.jpg)
-|![Slight Smile Face](https://i.imgur.com/PmV5Wrj.jpg)
-|![Happy Face](https://i.imgur.com/jtjZ4EX.jpg)
-|![Amaing Face](https://i.imgur.com/IvxlHNF.jpg)|
+|![Sad Face](https://i.imgur.com/1qSpXVDh.jpg)|![Neutral Face](https://i.imgur.com/zMyFCLzh.jpg)|![Slight Smile Face](https://i.imgur.com/PmV5Wrjh.jpg)|![Happy Face](https://i.imgur.com/jtjZ4EXh.jpg)|![Amaing Face](https://i.imgur.com/IvxlHNFh.jpg)|
 
 
 ## Things to implement
