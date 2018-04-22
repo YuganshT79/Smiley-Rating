@@ -18,7 +18,7 @@ import android.view.View;
 public class SmileyRatingView extends View {
 
     private int faceColor, eyesColor, mouthColor, tongueColor;
-    private RectF faceBgOval, sadOval, slightHappyOval, happyOval, amazingOval, tongueOval;
+    private RectF faceBgOval, sadOval, neutralOval, slightHappyOval, happyOval, amazingOval, tongueOval;
     private Paint paint;
     int centerOffset, viewWidth, viewHeight,
             whatToDraw = 2, defaultRating, strokeWidth, eyeRadius;
@@ -39,6 +39,7 @@ public class SmileyRatingView extends View {
         paint = new Paint();
         faceBgOval = new RectF();
         sadOval = new RectF();
+        neutralOval = new RectF();
         slightHappyOval = new RectF();
         happyOval = new RectF();
         amazingOval = new RectF();
@@ -78,6 +79,10 @@ public class SmileyRatingView extends View {
         sadOval.set((viewWidth / 2) - (viewWidth / 100 * 25), viewHeight - (viewHeight / 100 * 45),
                 (viewWidth / 2) + (viewWidth / 100 * 25), viewHeight - (viewHeight / 100 * 10));
 
+        neutralOval.set((viewWidth / 2) - (viewWidth / 100 * 30),
+                viewHeight - (viewHeight / 100 * 30),
+                (viewWidth / 2) + (viewWidth / 100 * 30),
+                viewHeight);
 
         slightHappyOval.set((viewWidth / 2) - (viewWidth / 100 * 30), viewHeight - (viewHeight / 100 * 60),
                 (viewWidth / 2) + (viewWidth / 100 * 30), viewHeight - (viewHeight / 100 * 20));
