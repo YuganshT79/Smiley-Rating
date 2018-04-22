@@ -119,9 +119,9 @@ public class SmileyRatingView extends View {
                 (viewWidth / 2) + (viewWidth / 100 * 25), viewHeight - (viewHeight / 100 * 10));
 
         neutralOval.set((viewWidth / 2) - (viewWidth / 100) * 30,
-                viewHeight - (viewHeight / 100) * 30,
+                viewHeight - (viewHeight / 100) * 40,
                 (viewWidth / 2) + (viewWidth / 100) * 30,
-                viewHeight - (viewHeight / 100) * 30);
+                viewHeight - (viewHeight / 100) * 40);
 
         slightHappyOval.set((viewWidth / 2) - (viewWidth / 100 * 30), viewHeight - (viewHeight / 100 * 60),
                 (viewWidth / 2) + (viewWidth / 100 * 30), viewHeight - (viewHeight / 100 * 20));
