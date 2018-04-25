@@ -302,8 +302,6 @@ public class SmileyRatingView extends View {
     private void startEyesAnimation(int... newPositions) {
 
         leftEyeAnimatorX.setIntValues(currEyeLX, newPositions[0]);
-        leftEyeAnimatorX.setDuration(animationDuration);
-        leftEyeAnimatorX.setInterpolator(new DecelerateInterpolator());
         leftEyeAnimatorX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
@@ -312,8 +310,6 @@ public class SmileyRatingView extends View {
             }
         });
         rightEyeAnimatorX.setIntValues(currEyeRX, newPositions[1]);
-        rightEyeAnimatorX.setDuration(animationDuration);
-        rightEyeAnimatorX.setInterpolator(new DecelerateInterpolator());
         rightEyeAnimatorX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
@@ -321,8 +317,6 @@ public class SmileyRatingView extends View {
             }
         });
         eyesAnimatorY.setIntValues(currEyeY, newPositions[2]);
-        eyesAnimatorY.setDuration(animationDuration);
-        eyesAnimatorY.setInterpolator(new DecelerateInterpolator());
         eyesAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
@@ -330,13 +324,10 @@ public class SmileyRatingView extends View {
             }
         });
         AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.setDuration(animationDuration);
+        animatorSet.setInterpolator(new DecelerateInterpolator());
         animatorSet.playTogether(rightEyeAnimatorX, leftEyeAnimatorX, eyesAnimatorY);
         animatorSet.start();
-    }
-
-    private static float dpToPx(Context context, int dp) {
-        Resources r = context.getResources();
-        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics());
     }
 
 }
