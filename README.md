@@ -79,11 +79,22 @@ ratingBar = findViewById(R.id.rating_bar);
 |app:mouth_color | To change mouth color of the Smiley|
 |app:default_rating | Default smiley( keep same as rating bar's `rating` )
 
+## Contribution
+
+If you want to contribute to the Project.
+- Star the repository
+- Fork the repository
+- Make a new `branch` with dscriptive name
+- Implement your feature
+- Make a pull request to the repo
+- Thanks for Contribution, now smile :Smile: an rejoice
+
 ## Things to implement
 
 - ~~Add smiley's for all ratings~~
 - ~~Make Smiley independent of Desity~~
-- Animate change of Smiley faces
+- ~~Implemented animation in eyes~~
+- Animate change of Smiley mouth
 
 ## License
 
