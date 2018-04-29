@@ -28,16 +28,16 @@ Add **JitPack** repository to your `build.gradle` file
 ``` gradle
 allprojects {
 	repositories {
-	maven { url 'https://jitpack.io' }
+	     maven { url 'https://jitpack.io' }
 	}
 }
 ```
 
-Add the Dependency
+Add the Dependency 
 
 ``` gradle
 dependencies {
-    implementation 'com.github.YuganshT79:Smiley-Rating:v1.0.0'
+    implementation 'com.github.YuganshT79:Smiley-Rating:{LATEST_VERSION}'
 }
 ```
 
