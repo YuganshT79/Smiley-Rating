@@ -3,7 +3,11 @@
 [![Version](https://jitpack.io/v/YuganshT79/Smiley-Rating.svg)](https://jitpack.io/#YuganshT79/Smiley-Rating)
 [![API-Level](https://img.shields.io/badge/API-16%2B-orange.svg)](https://android-arsenal.com/api?level=16)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+<<<<<<< HEAD
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/YuganshTyagi/5USD)
+=======
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/YuganshTyagi/5)
+>>>>>>> animation
 
 Smiley-Rating is a custom way to greet your users with a smile :smile: while they give awesome Feedback about your app.
 
@@ -78,11 +82,22 @@ ratingBar = findViewById(R.id.rating_bar);
 |app:mouth_color | To change mouth color of the Smiley|
 |app:default_rating | Default smiley( keep same as rating bar's `rating` )
 
+## Contribution
+
+If you want to contribute to the Project.
+- Star the repository
+- Fork the repository
+- Make a new `branch` with dscriptive name
+- Implement your feature
+- Make a pull request to the repo
+- Thanks for Contribution, now smile :Smile: an rejoice
+
 ## Things to implement
 
 - ~~Add smiley's for all ratings~~
 - ~~Make Smiley independent of Desity~~
-- Animate change of Smiley faces
+- ~~Implemented animation in eyes~~
+- Animate change of Smiley mouth
 
 ## License
 

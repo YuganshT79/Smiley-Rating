@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_centerHorizontal="true"
             android:layout_height="400dp"
-            app:default_rating="2"/>
+            app:default_rating="1"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -35,7 +35,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="70dp"
             android:numStars="4"
-            android:rating="2"
+            android:rating="1"
             android:stepSize="1"
             android:theme="@style/RatingBar" />
 
