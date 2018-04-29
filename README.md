@@ -86,7 +86,7 @@ If you want to contribute to the Project.
 - Make a new `branch` with dscriptive name
 - Implement your feature
 - Make a pull request to the repo
-- Thanks for Contribution, now smile :Smile: an rejoice
+- Thanks for Contribution, now smile :smile: an rejoice
 
 ## Things to implement
 
