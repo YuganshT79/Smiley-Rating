@@ -3,7 +3,7 @@
 [![Version](https://jitpack.io/v/YuganshT79/Smiley-Rating.svg)](https://jitpack.io/#YuganshT79/Smiley-Rating)
 [![API-Level](https://img.shields.io/badge/API-16%2B-orange.svg)](https://android-arsenal.com/api?level=16)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Buy me coffee](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/YuganshTyagi/5)
+[![Buy me coffee](https://img.shields.io/badge/Buy%20me%20coffee-PayPal-brightgreen)](https://www.paypal.me/YuganshTyagi/5)
 
 Smiley-Rating is a custom way to greet your users with a smile :smile: while they give awesome Feedback about your app.
 
