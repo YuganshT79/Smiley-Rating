@@ -33,7 +33,7 @@ allprojects {
 }
 ```
 
-Add the Dependency 
+Add the Dependency
 
 ``` gradle
 dependencies {
@@ -48,7 +48,7 @@ Add `SmileyRatingView` to your layout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.yugansh.tyagi.smileyrating.SmileyRatingView
+        <dev.yuganshtyagi.smileyrating.SmileyRatingView
             android:id="@+id/smiley_view"
             android:layout_width="match_parent"
             android:layout_height="400dp"/>
@@ -57,6 +57,7 @@ Add `SmileyRatingView` to your layout
 
 In your Activity
 
+Java
 ``` java
 SmileyRatingView smileyRatingView = findViewById(R.id.smiley_rating);
 ratingBar = findViewById(R.id.rating_bar);
@@ -66,6 +67,13 @@ ratingBar = findViewById(R.id.rating_bar);
                 smileyRatingView.setSmiley(rating);
             }
         });
+```
+
+Kotlin
+``` kotlin
+rating_bar.setOnRatingBarChangeListener { _, rating, _ ->
+            smiley_view.setSmiley(rating = rating)
+        }
 ```
 
 ## Customize the Smiley
@@ -83,7 +91,7 @@ ratingBar = findViewById(R.id.rating_bar);
 If you want to contribute to the Project.
 - Star :star: the repository
 - Fork the repository
-- Make a new `branch` with dscriptive name
+- Make a new `branch` with descriptive name
 - Implement your feature
 - Make a pull request to the repo
 - Thanks for Contribution, now smile :smile: an rejoice
@@ -91,7 +99,7 @@ If you want to contribute to the Project.
 ## Things to implement
 
 - ~~Add smiley's for all ratings~~
-- ~~Make Smiley independent of Desity~~
+- ~~Make Smiley independent of Density~~
 - ~~Implemented animation in eyes~~
 - Animate change of Smiley mouth
 
