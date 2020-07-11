@@ -1,18 +1,18 @@
-package com.yugansh.tyagi.smileyrating;
+package dev.yuganshtyagi.smileyrating;
 
 import android.animation.AnimatorSet;
 import android.animation.ValueAnimator;
 import android.content.Context;
-import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
+
+import com.yugansh.tyagi.smileyrating.R;
 
 /**
  * Created by Yugansh Tyagi on 4/19/2018.

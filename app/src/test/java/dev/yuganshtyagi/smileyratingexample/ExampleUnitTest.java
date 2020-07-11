@@ -1,4 +1,4 @@
-package com.yugansh.tyagi.smileyrating;
+package dev.yuganshtyagi.smileyratingexample;
 
 import org.junit.Test;
 

@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:hardwareAccelerated="false"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="dev.yuganshtyagi.smileyratingexample.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
