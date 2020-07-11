@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context="dev.yuganshtyagi.smileyratingexample.MainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.yugansh.tyagi.smileyrating.SmileyRatingView
+        <dev.yuganshtyagi.smileyrating.SmileyRatingView
             android:id="@+id/smiley_view"
             android:layout_width="match_parent"
             android:layout_centerHorizontal="true"

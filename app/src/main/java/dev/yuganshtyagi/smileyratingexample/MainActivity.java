@@ -1,11 +1,13 @@
-package com.yugansh.tyagi.smileyratingexample;
+package dev.yuganshtyagi.smileyratingexample;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.RatingBar;
 
-import com.yugansh.tyagi.smileyrating.SmileyRatingView;
+import dev.yuganshtyagi.smileyrating.SmileyRatingView;
+
+import com.yugansh.tyagi.smileyratingexample.R;
 
 public class MainActivity extends AppCompatActivity {
 
