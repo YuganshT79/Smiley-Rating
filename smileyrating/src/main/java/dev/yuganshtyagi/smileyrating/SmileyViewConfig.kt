@@ -49,9 +49,9 @@ internal class SmileyViewConfig(
 
     var defaultRating = 0
 
-    var viewWidth = 0
-    var viewHeight = 0
-    var widthCenter = 0
+    private var viewWidth = 0
+    private var viewHeight = 0
+    private var widthCenter = 0
     private var heightCenter = 0
     private var centerOffset = 0
 

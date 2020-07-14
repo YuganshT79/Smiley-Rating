@@ -3,7 +3,7 @@ package dev.yuganshtyagi.smileyrating
 /**
  *  Created by Yugansh on 7/12/2020
  */
-sealed class SmileyState {
+internal sealed class SmileyState {
     object Sad : SmileyState()
     object Neutral : SmileyState()
     object Okay : SmileyState()
