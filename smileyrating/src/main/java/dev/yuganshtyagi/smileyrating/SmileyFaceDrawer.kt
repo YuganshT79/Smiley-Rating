@@ -9,7 +9,7 @@ import dev.yuganshtyagi.smileyrating.SmileyState.*
 /**
  * Created by Yugansh on 14/07/20.
  */
-class SmileyFaceDrawer(context: Context, attributeSet: AttributeSet?) {
+internal class SmileyFaceDrawer(context: Context, attributeSet: AttributeSet?) {
 
     private var config: SmileyViewConfig = SmileyViewConfig(context, attributeSet)
     private var animator: SmileyFaceAnimator = SmileyFaceAnimator(config)
