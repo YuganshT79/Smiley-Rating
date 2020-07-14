@@ -12,12 +12,13 @@ import dev.yuganshtyagi.smileyrating.SmileyState.*
 class SmileyFaceDrawer(context: Context, attributeSet: AttributeSet?) {
 
     private var config: SmileyViewConfig = SmileyViewConfig(context, attributeSet)
+    private var animator: SmileyFaceAnimator = SmileyFaceAnimator(config)
 
     fun drawFace(canvas: Canvas) {
         config.paint.color = config.faceColor
         config.paint.isAntiAlias = true
         config.paint.style = Style.FILL
-        canvas.drawArc(config.faceBgOval, 0f, 180f, true, config.paint)
+        canvas.drawArc(config.faceBgRect, 0f, 180f, true, config.paint)
 
         when (SmileyState.of(config.defaultRating)) {
             Sad -> drawSadFace(canvas)
@@ -57,7 +58,7 @@ class SmileyFaceDrawer(context: Context, attributeSet: AttributeSet?) {
         //Draw mouth
         config.paint.color = config.mouthColor
         config.paint.style = Style.STROKE
-        canvas.drawArc(config.sadOval, 0f, -180f, false, config.paint)
+        canvas.drawArc(config.sadFaceRect, 0f, -180f, false, config.paint)
     }
 
     private fun drawNeutralFace(canvas: Canvas) {
@@ -81,10 +82,11 @@ class SmileyFaceDrawer(context: Context, attributeSet: AttributeSet?) {
         config.paint.color = config.mouthColor
         config.paint.style = Style.STROKE
         canvas.drawLine(
-            config.widthCenter - (config.viewWidth / 100) * 30.toFloat(),
-            config.viewHeight - config.viewHeight / 100 * 30.toFloat(),
-            config.widthCenter + config.viewWidth / 100 * 30.toFloat(),
-            config.viewHeight - config.viewHeight / 100 * 30.toFloat(), config.paint
+            config.neutralFaceRect.left,
+            config.neutralFaceRect.top,
+            config.neutralFaceRect.right,
+            config.neutralFaceRect.bottom,
+            config.paint
         )
     }
 
@@ -108,7 +110,7 @@ class SmileyFaceDrawer(context: Context, attributeSet: AttributeSet?) {
         //Draw mouth
         config.paint.color = config.mouthColor
         config.paint.style = Style.STROKE
-        canvas.drawArc(config.slightHappyOval, 0f, 180f, false, config.paint)
+        canvas.drawArc(config.okayFaceRect, 0f, 180f, false, config.paint)
     }
 
     private fun drawHappyFace(canvas: Canvas) {
@@ -131,7 +133,7 @@ class SmileyFaceDrawer(context: Context, attributeSet: AttributeSet?) {
         //Draw mouth
         config.paint.color = config.mouthColor
         config.paint.style = Style.STROKE
-        canvas.drawArc(config.happyOval, 0f, 180f, false, config.paint)
+        canvas.drawArc(config.happyFaceRect, 0f, 180f, false, config.paint)
     }
 
     private fun drawAmazingFace(canvas: Canvas) {
@@ -154,11 +156,11 @@ class SmileyFaceDrawer(context: Context, attributeSet: AttributeSet?) {
         //Draw mouth
         config.paint.color = config.mouthColor
         config.paint.style = Style.FILL
-        canvas.drawArc(config.amazingOval, 0f, 180f, true, config.paint)
+        canvas.drawArc(config.amazingFaceRect, 0f, 180f, true, config.paint)
 
         //Draw tongue
         config.paint.color = config.tongueColor
         config.paint.style = Style.FILL
-        canvas.drawArc(config.tongueOval, 0f, 180f, false, config.paint)
+        canvas.drawArc(config.tongueRect, 0f, 180f, false, config.paint)
     }
 }

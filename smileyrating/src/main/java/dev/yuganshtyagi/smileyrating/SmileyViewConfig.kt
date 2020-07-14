@@ -33,12 +33,13 @@ internal class SmileyViewConfig(
     var tongueColor = 0
 
     //rect
-    var faceBgOval = RectF()
-    var sadOval = RectF()
-    var slightHappyOval = RectF()
-    var happyOval = RectF()
-    var amazingOval = RectF()
-    var tongueOval = RectF()
+    var faceBgRect = RectF()
+    var sadFaceRect = RectF()
+    var neutralFaceRect = RectF()
+    var okayFaceRect = RectF()
+    var happyFaceRect = RectF()
+    var amazingFaceRect = RectF()
+    var tongueRect = RectF()
     val eyeRadius = 35F.toDp()
 
     //eyesPos
@@ -112,37 +113,43 @@ internal class SmileyViewConfig(
     }
 
     private fun initRectValues() {
-        faceBgOval.set(
+        faceBgRect.set(
             -centerOffset.toFloat(),
             -viewHeight.toFloat(),
             viewWidth + centerOffset.toFloat(),
             viewHeight.toFloat()
         )
-        sadOval.set(
+        sadFaceRect.set(
             widthCenter - 90F.toDp(),
             viewHeight - 180F.toDp(),
             widthCenter + 90F.toDp(),
             viewHeight - 20F.toDp()
         )
-        slightHappyOval.set(
+        neutralFaceRect.set(
+            widthCenter - 120F.toDp(),
+            viewHeight - 110F.toDp(),
+            widthCenter + 120F.toDp(),
+            viewHeight - 110F.toDp()
+        )
+        okayFaceRect.set(
             widthCenter - 110F.toDp(),
             viewHeight - 250F.toDp(),
             widthCenter + 110F.toDp(),
             viewHeight - 70F.toDp()
         )
-        happyOval.set(
+        happyFaceRect.set(
             widthCenter - 130F.toDp(),
             viewHeight - 330F.toDp(),
             widthCenter + 130F.toDp(),
             viewHeight - 70F.toDp()
         )
-        amazingOval.set(
+        amazingFaceRect.set(
             widthCenter - 132F.toDp(),
             viewHeight - 330F.toDp(),
             widthCenter + 132F.toDp(),
             viewHeight - 50F.toDp()
         )
-        tongueOval.set(
+        tongueRect.set(
             widthCenter - 70F.toDp(),
             viewHeight - 220F.toDp(),
             widthCenter + 70F.toDp(),
