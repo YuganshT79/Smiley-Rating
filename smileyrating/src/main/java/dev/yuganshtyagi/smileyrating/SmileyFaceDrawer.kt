@@ -11,7 +11,8 @@ import dev.yuganshtyagi.smileyrating.SmileyState.*
  */
 internal class SmileyFaceDrawer(context: Context, attributeSet: AttributeSet?) {
 
-    private var config: SmileyViewConfig = SmileyViewConfig(context, attributeSet)
+    private val config: SmileyViewConfig = SmileyViewConfig(context, attributeSet)
+    private val animator = SmileyAnimator(config)
 
     fun drawFace(canvas: Canvas) {
         config.paint.color = config.faceColor
@@ -25,11 +26,12 @@ internal class SmileyFaceDrawer(context: Context, attributeSet: AttributeSet?) {
 
     fun onMeasure(width: Int, height: Int) {
         config.onMeasure(width, height)
+        animator.updateEyesValues()
     }
 
-    fun updateRating(rating: Float) {
+    fun updateRating(rating: Float, invalidate: () -> Unit) {
         config.defaultRating = rating.toInt()
-        config.updateCurrentEyePos()
+        animator.animateEyesToNewPos(invalidate)
     }
 
     private fun drawFaceForState(canvas: Canvas, state: SmileyState) {

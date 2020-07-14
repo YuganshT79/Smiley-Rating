@@ -35,7 +35,6 @@ class SmileyRatingView @JvmOverloads constructor(
     }
 
     fun setSmiley(rating: Float) {
-        drawer.updateRating(rating)
-        invalidate()
+        drawer.updateRating(rating) { invalidate() }
     }
 }

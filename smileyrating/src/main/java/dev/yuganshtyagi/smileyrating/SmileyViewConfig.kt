@@ -105,7 +105,7 @@ internal class SmileyViewConfig(
         updateCurrentEyePos()
     }
 
-    fun updateCurrentEyePos() {
+    private fun updateCurrentEyePos() {
         val position = getEyePosForState(SmileyState.of(defaultRating))
         currEyeLX = position.leftEyeX
         currEyeRX = position.rightEyeX
@@ -157,7 +157,7 @@ internal class SmileyViewConfig(
         )
     }
 
-    private fun getEyePosForState(state: SmileyState): EyePos {
+    fun getEyePosForState(state: SmileyState): EyePos {
         return when (state) {
             Sad -> {
                 EyePos(
@@ -182,9 +182,9 @@ internal class SmileyViewConfig(
             }
             Happy -> {
                 EyePos(
-                    leftEyeX = widthCenter - 72.toDp(),
-                    rightEyeX = widthCenter + 72.toDp(),
-                    eyesY = 85.toDp()
+                    leftEyeX = widthCenter - 75.toDp(),
+                    rightEyeX = widthCenter + 75.toDp(),
+                    eyesY = 82.toDp()
                 )
             }
             Amazing -> {
@@ -197,7 +197,7 @@ internal class SmileyViewConfig(
         }
     }
 
-    private data class EyePos(
+    internal data class EyePos(
         var leftEyeX: Int = 0,
         val rightEyeX: Int = 0,
         val eyesY: Int = 0
