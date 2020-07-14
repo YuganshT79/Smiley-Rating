@@ -12,7 +12,6 @@ import dev.yuganshtyagi.smileyrating.SmileyState.*
 internal class SmileyFaceDrawer(context: Context, attributeSet: AttributeSet?) {
 
     private var config: SmileyViewConfig = SmileyViewConfig(context, attributeSet)
-    private var animator: SmileyFaceAnimator = SmileyFaceAnimator(config)
 
     fun drawFace(canvas: Canvas) {
         config.paint.color = config.faceColor
@@ -20,13 +19,8 @@ internal class SmileyFaceDrawer(context: Context, attributeSet: AttributeSet?) {
         config.paint.style = Style.FILL
         canvas.drawArc(config.faceBgRect, 0f, 180f, true, config.paint)
 
-        when (SmileyState.of(config.defaultRating)) {
-            Sad -> drawSadFace(canvas)
-            Neutral -> drawNeutralFace(canvas)
-            Okay -> drawOkayFace(canvas)
-            Happy -> drawHappyFace(canvas)
-            Amazing -> drawAmazingFace(canvas)
-        }
+        drawEyes(canvas)
+        drawFaceForState(canvas, SmileyState.of(config.defaultRating))
     }
 
     fun onMeasure(width: Int, height: Int) {
@@ -38,8 +32,19 @@ internal class SmileyFaceDrawer(context: Context, attributeSet: AttributeSet?) {
         config.updateCurrentEyePos()
     }
 
-    private fun drawSadFace(canvas: Canvas) {
-        //Draw Eyes
+    private fun drawFaceForState(canvas: Canvas, state: SmileyState) {
+        //update paint
+        config.paint.color = config.mouthColor
+        config.paint.style = Style.STROKE
+        when (state) {
+            Sad -> drawSadFace(canvas)
+            Neutral -> drawNeutralFace(canvas)
+            Okay, Happy -> drawHappyFace(canvas, state)
+            Amazing -> drawAmazingFace(canvas)
+        }
+    }
+
+    private fun drawEyes(canvas: Canvas) {
         config.paint.color = config.eyesColor
         config.paint.style = Style.FILL
         canvas.drawCircle(
@@ -54,33 +59,13 @@ internal class SmileyFaceDrawer(context: Context, attributeSet: AttributeSet?) {
             config.eyeRadius,
             config.paint
         )
+    }
 
-        //Draw mouth
-        config.paint.color = config.mouthColor
-        config.paint.style = Style.STROKE
+    private fun drawSadFace(canvas: Canvas) {
         canvas.drawArc(config.sadFaceRect, 0f, -180f, false, config.paint)
     }
 
     private fun drawNeutralFace(canvas: Canvas) {
-        //Draw Eyes
-        config.paint.color = config.eyesColor
-        config.paint.style = Style.FILL
-        canvas.drawCircle(
-            config.currEyeLX.toFloat(),
-            config.currEyeY.toFloat(),
-            config.eyeRadius,
-            config.paint
-        )
-        canvas.drawCircle(
-            config.currEyeRX.toFloat(),
-            config.currEyeY.toFloat(),
-            config.eyeRadius,
-            config.paint
-        )
-
-        //Draw mouth
-        config.paint.color = config.mouthColor
-        config.paint.style = Style.STROKE
         canvas.drawLine(
             config.neutralFaceRect.left,
             config.neutralFaceRect.top,
@@ -90,77 +75,19 @@ internal class SmileyFaceDrawer(context: Context, attributeSet: AttributeSet?) {
         )
     }
 
-    private fun drawOkayFace(canvas: Canvas) {
-        //Draw Eyes
-        config.paint.color = config.eyesColor
-        config.paint.style = Style.FILL
-        canvas.drawCircle(
-            config.currEyeLX.toFloat(),
-            config.currEyeY.toFloat(),
-            config.eyeRadius,
-            config.paint
-        )
-        canvas.drawCircle(
-            config.currEyeRX.toFloat(),
-            config.currEyeY.toFloat(),
-            config.eyeRadius,
-            config.paint
-        )
-
-        //Draw mouth
-        config.paint.color = config.mouthColor
-        config.paint.style = Style.STROKE
-        canvas.drawArc(config.okayFaceRect, 0f, 180f, false, config.paint)
-    }
-
-    private fun drawHappyFace(canvas: Canvas) {
-        //Draw Eyes
-        config.paint.color = config.eyesColor
-        config.paint.style = Style.FILL
-        canvas.drawCircle(
-            config.currEyeLX.toFloat(),
-            config.currEyeY.toFloat(),
-            config.eyeRadius,
-            config.paint
-        )
-        canvas.drawCircle(
-            config.currEyeRX.toFloat(),
-            config.currEyeY.toFloat(),
-            config.eyeRadius,
-            config.paint
-        )
-
-        //Draw mouth
-        config.paint.color = config.mouthColor
-        config.paint.style = Style.STROKE
-        canvas.drawArc(config.happyFaceRect, 0f, 180f, false, config.paint)
+    private fun drawHappyFace(canvas: Canvas, state: SmileyState) {
+        val rect = if (state is Okay) config.okayFaceRect else config.happyFaceRect
+        canvas.drawArc(rect, 0f, 180f, false, config.paint)
     }
 
     private fun drawAmazingFace(canvas: Canvas) {
-        //Draw Eyes
-        config.paint.color = config.eyesColor
-        config.paint.style = Style.FILL
-        canvas.drawCircle(
-            config.currEyeLX.toFloat(),
-            config.currEyeY.toFloat(),
-            config.eyeRadius,
-            config.paint
-        )
-        canvas.drawCircle(
-            config.currEyeRX.toFloat(),
-            config.currEyeY.toFloat(),
-            config.eyeRadius,
-            config.paint
-        )
-
         //Draw mouth
-        config.paint.color = config.mouthColor
         config.paint.style = Style.FILL
+        config.paint.color = config.mouthColor
         canvas.drawArc(config.amazingFaceRect, 0f, 180f, true, config.paint)
 
         //Draw tongue
         config.paint.color = config.tongueColor
-        config.paint.style = Style.FILL
         canvas.drawArc(config.tongueRect, 0f, 180f, false, config.paint)
     }
 }
